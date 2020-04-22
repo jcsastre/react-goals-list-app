@@ -1,14 +1,18 @@
 import React from 'react';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Container from '@material-ui/core/Container';
 
 import './GoalList.css';
 
 const GoalList = props => {
     return (
-        <ul className="goal-list">
+        <Container maxWidth="sm">
             {props.goals.map((goal) => {
-                return <li key={goal.id}>{goal.text}</li>
+                return <Container maxWidth="sm">
+                    <Card variant="outlined"><CardContent>{goal.text}</CardContent></Card></Container>
             })}
-        </ul>
+        </Container>
     );
 };
 

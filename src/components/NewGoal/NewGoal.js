@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+
 import './NewGoal.css';
 
 const NewGoal = props => {
+
     const [enteredText, setEnteredText] = useState('');
 
     const addGoalHandler = event => {
@@ -22,11 +27,14 @@ const NewGoal = props => {
         setEnteredText(event.target.value);
     };
 
+    
     return (
-        <form className="new-goal" onSubmit={addGoalHandler}>
-            <input type="text" value={enteredText} onChange={textChangeHandler} />
-            <button type="submit">Add Goal</button>
-        </form>
+        <Container maxWidth="sm">
+            <form onSubmit={addGoalHandler}>
+                <Input inputProps={{ 'aria-label': 'description' }} value={enteredText} onChange={textChangeHandler} />
+                <Button type="submit" variant="contained" color="primary">Add Goal</Button>
+            </form>
+        </Container>
     );
 };
 

@@ -4,6 +4,7 @@ import './App.css';
 
 import GoalList from './components/GoalList/GoalList';
 import NewGoal from './components/NewGoal/NewGoal';
+import Container from '@material-ui/core/Container';
 
 const App = () => {
 
@@ -21,11 +22,13 @@ const App = () => {
   };
 
   return (
-    <div className="course-goals">
-      <h2>Course Goals</h2>
-      <NewGoal onAddGoal={addNewGoalHandler} />
-      <GoalList goals={courseGoals} />
-    </div>
+    <Container maxWidth="sm">
+      <div className="course-goals">
+        <h2>Course Goals</h2>
+        <NewGoal onAddGoal={addNewGoalHandler} />
+        <GoalList goals={courseGoals} />
+      </div>
+    </Container>
   );
 }
 
